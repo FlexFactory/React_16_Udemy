@@ -1,0 +1,9 @@
+.App {
+     text-align: center;
+ }
+
+.UserInput {
+    text-align: center;
+    width: 500px;
+    border: 1px solid #eee;
+}
