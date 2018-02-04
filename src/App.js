@@ -1,26 +1,27 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-
-import UserInput from './UserInput';
-import UserOutput from './UserOutput';
+import Inputer from "./Inputer";
+import Validator from './Validator';
+import CharComponent from './CharComponent';
 
 class App extends Component {
   state = {
-    username: 'Bob Dylan'
+    longText: ''
   };
 
-  onUsernameChange = (event) => {
+  onTextChange = (event) => {
     this.setState({
-      username: event.target.value
+      longText: event.target.value
     });
   };
 
   render() {
     return (
       <div className="App">
-        <UserInput onUsernameChange={this.onUsernameChange.bind(this)}
-                   username={this.state.username} />
-        <UserOutput username={this.state.username}/>
+        <Inputer onTextChange={this.onTextChange.bind(this)} longText={this.state.longText} />
+        <h2>Output text</h2>
+        <Validator textLength={ this.state.longText.length }/>
+        <CharComponent longText={this.state.longText} />
       </div>
     );
   }
